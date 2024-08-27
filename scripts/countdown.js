@@ -8,11 +8,34 @@ function startCountdown(targetDate) {
         return new Date(year, month - 1, day); // Months are 0-based in JavaScript Date
     }
 
-    let endTime = parseDate(targetDate).getTime();
+    let endTime = parseDate(targetDate);
 
     function updateCountdown() {
-        let now = Date.now();
-        let timeLeft = endTime - now;
+        let now = new Date();
+        let currentYear = now.getFullYear();
+        let currentMonth = now.getMonth();
+        let currentDay = now.getDate();
+
+        let endYear = endTime.getFullYear();
+        let endMonth = endTime.getMonth();
+        let endDay = endTime.getDate();
+
+        // Calculate the difference in years, months, and days
+        let months = (endYear - currentYear) * 12 + (endMonth - currentMonth);
+        let days = endDay - currentDay;
+
+        // Adjust if the current day is greater than the target day
+        if (days < 0) {
+            months--;
+            let previousMonth = new Date(endYear, endMonth, 0).getDate();
+            days += previousMonth;
+        }
+
+        // Calculate time components
+        let timeLeft = endTime.getTime() - now.getTime();
+        let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
         if (timeLeft <= 0) {
             countdownElement.textContent = 'Time’s up!';
@@ -20,12 +43,7 @@ function startCountdown(targetDate) {
             return;
         }
 
-        let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-
-        countdownElement.textContent = `Wedding Countdown ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        countdownElement.textContent = `Wedding Countdown: ${months}mo ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     let interval = setInterval(updateCountdown, 1000);
@@ -33,4 +51,4 @@ function startCountdown(targetDate) {
 }
 
 // Input target date in MMDDYYYY format
-startCountdown('12072024'); // Example: August 30, 2024
+startCountdown('12072024'); // Example: December 7, 2024
