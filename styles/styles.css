@@ -1941,7 +1941,7 @@ html, body {
 	border-right: 140px solid transparent;
 	border-bottom: 82px solid transparent;
 	/* a little smaller */
-	border-top: 98px solid #A64B2A;
+	border-top: 98px solid #A04C4F;
 	/* a little larger */
 	transform-origin: top;
 	pointer-events: none;
@@ -2164,9 +2164,9 @@ body {
 		transition: all 0.1s linear;
 		-webkit-appearance: none;
 		background-color: transparent;
-		border: solid 2px #E3B64D;
+		border: solid 2px #A04C4F;
 		border-radius: 4px;
-		color: #E3B64D;
+		color: #A04C4F;
 		display: inline-block;
 		font-size: 14px;
 		text-transform: uppercase;
@@ -2179,7 +2179,7 @@ body {
 	}
 
 		.reset button:hover {
-			background-color: #E3B64D;
+			background-color: #A04C4F;
 			color: #fff;
 		}
 
