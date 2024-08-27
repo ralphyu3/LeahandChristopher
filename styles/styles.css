@@ -1805,6 +1805,12 @@ a {
 	text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 50px #ff0080;
 }
 
+.rmw-glow-semi {
+	color: black; /* Text color */
+	text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* White glow effect */
+	font-size: inherit; /* Adjust the size as needed */
+	font-weight: bold;
+}
 html, body {
 	font-family: "Raleway", sans-serif !important;
 }
