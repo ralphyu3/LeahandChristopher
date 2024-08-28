@@ -28,12 +28,15 @@ $(document).ready(function () {
         const id01 = document.getElementById('id01');
         const foot = document.getElementById('foot');
         const margbottom = document.getElementById('margbottom');
+        const linkElement = document.querySelector('link[href="styles/envelope.css"]');
+
 
         // Add 'open' class and remove 'close' class
         envelope.classList.add("open");
         envelope.classList.remove("close");
         setTimeout(() => {
             envelopebody.classList.add("b-hidden");
+            linkElement.parentNode.removeChild(linkElement);
             navbar.classList.remove("b-hidden");
             us.classList.remove("b-hidden");
             home.classList.remove("b-hidden");
