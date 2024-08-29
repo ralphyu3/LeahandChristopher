@@ -49,9 +49,7 @@ function initialize() {
     setTimeout(() => {
         removeEnvelopeElements();
         addMainHtmlStyles();
-        setTimeout(() => {
-            removebhidden();
-        }, 100);
+        addMainHtmlBody();
 
     }, 1000)
 }
@@ -94,14 +92,11 @@ function addMainHtmlStyles() {
 }
 
 function addMainHtmlBody() {
-    // Create a new body element
-    const newBody = document.createElement('body');
-
-    // Set the innerHTML of the new body to the HTML content you want to insert
-    newBody.innerHTML = `
+    document.body.insertAdjacentHTML('afterbegin',
+        `
     <!-- Header / Home-->
     <header class="rmw-display-container rmw-wide bgimg rmw-grayscale-min" id="home">
-        <div class="rmw-display-middle headertext rmw-center">
+        <div class="rmw-display-middle headertext rmw-center ">
             <h1 class="rmw-jumbo merriweather-regular">Marielle & Ralph</h1>
             <h2 class="merriweather-regular">are getting married</h2>
             <h2 class="merriweather-regular"><b>12.07.2024</b></h2>
@@ -119,12 +114,18 @@ function addMainHtmlBody() {
     </div>
 
     <!-- Soon to be YUS-->
-    <div class="rmw-container rmw-padding-64 rmw-grayscale-min" id="us">
+    <div class="rmw-container rmw-padding-64  rmw-grayscale-min" id="us">
         <div class="rmw-content">
-            <h1 class="rmw-center pacifico-regular">Soon to be YUs . .</h1>
+            <h1 class="rmw-center pacifico-regular ">Soon to be YUs . .</h1>
             <img class="rmw-round rmw-grayscale-min" src="images/sg9.JPG"
                  style="width:100%;margin:32px 0">
-            <p><i>We joyfully invite you to witness our love and commitment as we embark on this beautiful journey together. Your presence will make our special day even more memorable, as we celebrate the start of our new chapter filled with love, laughter, and cherished moments. Please join us for a day of heartfelt vows, joyous celebrations, and unforgettable memories. We look forward to sharing this meaningful occasion with you and creating memories that will last a lifetime.</i></p><br>
+            <p>
+                <i>
+                    We joyfully invite you to witness our love and commitment as we embark on this beautiful journey together. Your presence will make our special day even more memorable, as we celebrate the start of our new chapter filled with love, laughter, and cherished moments.
+
+                    Please join us for a day of heartfelt vows, joyous celebrations, and unforgettable memories. We look forward to sharing this meaningful occasion with you and creating memories that will last a lifetime.
+                </i>
+            </p><br>
             <p class="rmw-center">
                 <a href="#wedding"
                    class="rmw-button rmw-black rmw-round rmw-padding-large rmw-large">Wedding Details</a>
@@ -141,7 +142,7 @@ function addMainHtmlBody() {
     </div>
 
     <!-- Wedding Details -->
-    <div class="rmw-container rmw-padding-48 rmw-grayscale-min rmw-center" id="wedding">
+    <div class="rmw-container rmw-padding-48  rmw-grayscale-min rmw-center" id="wedding">
         <div class="rmw-content">
             <h1 class="rmw-text-black"><b>Wedding Details</b></h1>
             <img class="rmw-round-large rmw-grayscale-min"
@@ -151,7 +152,10 @@ function addMainHtmlBody() {
                 <div class="rmw-half">
                     <h2>Venue</h2>
                     <p>The Old Farmhouse at Hacienda Gloria, Brgy. Concepcion, Talisay City, Negros Occidental</p>
-                    <p><a href="https://maps.app.goo.gl/Cz2rbgZeKmog5S7s8" target="_blank" class="rmw-hover-text-amber">Click to view on Google Maps</a></p>
+                    <p>
+                        <a href="https://maps.app.goo.gl/Cz2rbgZeKmog5S7s8" target="_blank"
+                           class="rmw-hover-text-amber">Click to view on Google Maps</a>
+                    </p>
                 </div>
                 <div class="rmw-half">
                     <h2>Program</h2>
@@ -164,24 +168,31 @@ function addMainHtmlBody() {
     </div>
 
     <!-- Attire Details -->
-    <div class="rmw-container rmw-padding-48 rmw-grayscale-min rmw-center">
+    <div class="rmw-container rmw-padding-48  rmw-grayscale-min rmw-center">
         <div class="rmw-content">
             <h1 class="rmw-text-black"><b>Dress Code</b></h1>
             <div class="rmw-row">
                 <h2 class="rmw-text-black"><b>Principal Sponsors</b></h2>
                 <div class="rmw-half">
                     <h3>Male</h3>
-                    <p>Barong Tagalog (Cream)</p>
+                    <p>
+                        Barong Tagalog (Cream)
+                    </p>
                 </div>
                 <div class="rmw-half">
                     <h3>Female</h3>
-                    <p>Long Gown (Beige / Cream)</p>
+                    <p>
+                        Long Gown (Beige / Cream)
+                    </p>
                 </div>
             </div>
             <div class="rmw-row">
+
                 <div class="rmw-col">
                     <h2 class="rmw-text-black"><b>Guests</b></h2>
-                    <p>Strictly Semi-Formal Attire</p>
+                    <p>
+                        Strictly Semi-Formal Attire
+                    </p>
                 </div>
                 <div class="rmw-col">
                     <h2><img src="images/colorpallete.png" alt="colorpallete"></h2>
@@ -190,34 +201,47 @@ function addMainHtmlBody() {
         </div>
     </div>
 
-    <!-- Gift Ideas -->
-    <div class="rmw-container rmw-padding-64 rmw-grayscale-min rmw-center">
+    <!--Gift Ideas-->
+    <div class="rmw-container rmw-padding-64  rmw-grayscale-min rmw-center">
         <div class="rmw-content">
             <h1 class="rmw-text-black"><b>Gift Ideas</b></h1>
-            <p><i>Your presence on our special day means the world to us. We kindly ask for your prayers as we begin our journey together. If you'd like to give a gift, it will be greatly appreciated.</i></p>
+            <p class="">
+                <i>
+                    Your presence on our special day means the world to us. We kindly ask for your prayers as we begin our journey together. If you'd like to give a gift, it will be greatly appreciated.
+                </i>
+            </p>
             <div class="rmw-row">
                 <div class="rmw-third">
                     <h3>Cash</h3>
-                    <p>Envelopes will be provided on the venue</p>
+                    <p>
+                        Envelopes will be provided on the venue
+                    </p>
                 </div>
                 <div class="rmw-third">
                     <h3>Gcash</h3>
-                    <p>You can send on 09xxxxxx</p>
+                    <p>
+                        You can send on 09xxxxxx
+                    </p>
                 </div>
                 <div class="rmw-third">
                     <h3>Others</h3>
-                    <p>Any gifts will be appreciated</p>
+                    <p>
+                        Any gifts will be appreciated
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- RSVP section -->
-    <div class="rmw-container rmw-padding-64 rmw-center" id="rsvp">
+    <div class="rmw-container rmw-padding-64  rmw-center" id="rsvp">
         <h1 class="raleway">We Hope You Can Join Us!</h1>
         <p class="rmw-medium raleway">Kindly Respond by clicking the RSVP button on/before September 30, 2024</p>
         <p class="rmw-xlarge">
-            <button onclick="document.getElementById('id01').style.display='block'" class="rmw-button rmw-round rmw-deep-red rmw-opacity rmw-hover-opacity-off" style="padding:8px 60px">RSVP</button>
+            <button onclick="document.getElementById('id01').style.display='block'"
+                    class="rmw-button rmw-round rmw-deep-red rmw-opacity rmw-hover-opacity-off" style="padding:8px 60px">
+                RSVP
+            </button>
         </p>
     </div>
 
@@ -225,22 +249,23 @@ function addMainHtmlBody() {
     <div id="id01" class="rmw-modal">
         <div class="rmw-modal-content rmw-card-4 rmw-animate-zoom" style="padding:32px;max-width:600px; height: 85vh;">
             <span onclick="document.getElementById('id01').style.display='none'" class="rmw-button rmw-large rmw-display-topright">&times;</span>
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdCbq6jbrjaUOLp8rkV2sqX4dNUPuXDHgqluZ6JbwZSpdFqpg/viewform?usp=sf_link" width="100%" height="90%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdCbq6jbrjaUOLp8rkV2sqX4dNUPuXDHgqluZ6JbwZSpdFqpg/viewform?usp=sf_link"
+                    width="100%" height="90%" frameborder="0" marginheight="0" marginwidth="0">
+                Loading…
+            </iframe>
         </div>
     </div>
 
-    <!-- Footer Count Down -->
+
+    <!--Footer Count Down-->
     <footer class="rmw-center rmw-beige montserrat rmw-padding-16">
         <div id="countdown">Loading...</div>
+
         <script src="scripts/countdown.js"></script>
         <script src="scripts/navbarvisibility.js"></script>
+
     </footer>
-    <div class="rmw-hide-small" style="margin-bottom:32px"> </div>
-`;
-
-    // Replace the current body with the new body
-    document.body = newBody;
-
+    <div class="rmw-hide-small" style="margin-bottom:32px"> </div>`)
 }
 
 function removebhidden() {
