@@ -47,9 +47,7 @@ function pullOut() {
 
 function initialize() {
     setTimeout(() => {
-        removeEnvelopeElements();
-        addMainHtmlStyles();
-        addMainHtmlBody();
+        redirectoindex();
 
     }, 1000)
 }
@@ -254,18 +252,7 @@ function addMainHtmlBody() {
                 Loading…
             </iframe>
         </div>
-    </div>
-
-
-    <!--Footer Count Down-->
-    <footer class="rmw-center rmw-beige montserrat rmw-padding-16">
-        <div id="countdown">Loading...</div>
-
-        <script src="scripts/countdown.js"></script>
-        <script src="scripts/navbarvisibility.js"></script>
-
-    </footer>
-    <div class="rmw-hide-small" style="margin-bottom:32px"> </div>`)
+    </div>`)
 }
 
 function removebhidden() {
@@ -292,6 +279,16 @@ function removebhidden() {
     id01.classList.remove("b-hidden");
     foot.classList.remove("b-hidden");
     margbottom.classList.remove("b-hidden");
+}
+
+function removehidefoot() {
+
+    const foot = document.getElementById('foot');
+    foot.classList.remove("b-hidden")
+}
+
+function redirectoindex() {
+    window.location.href = './index.html';
 }
 
 button.one('click', pullOut);
