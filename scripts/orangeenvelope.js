@@ -1,4 +1,4 @@
-const button = $('button');
+const button = $('#envelopeButton');
 const envelope = $('.envelope');
 
 function pullOut() {
@@ -37,7 +37,7 @@ function pullOut() {
             scaleY: 1,
             ease: Circ.easeInOut,
         }, 'moveDown')
-        .to('button', 1, {
+        .to('#envelopeButton', 1, {
             y: '180px',
             ease: Circ.easeInOut,
             onComplete: removeEnvelopeElements
