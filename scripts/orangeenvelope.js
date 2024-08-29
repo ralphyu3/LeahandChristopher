@@ -1,6 +1,5 @@
 const button = $('button');
 const envelope = $('.envelope');
-var flipped = false;
 
 function pullOut() {
     button.hide();
@@ -41,29 +40,33 @@ function pullOut() {
         .to('button', 1, {
             y: '180px',
             ease: Circ.easeInOut,
-            onComplete: toggleText
+            onComplete: removeEnvelopeElements
         }, 'moveDown+=0.15');
 }
 
-function toggleFlip() {
-    if (!envelope.hasClass('is-open')) {
-        return;
-    }
 
-    const ry = (!flipped) ? 180 : 0;
-    flipped = (!flipped) ? true : false;
+function removeEnvelopeElements() {
+    const fontLink = document.querySelector('link[href="https://fonts.googleapis.com/css?family=Baloo"]');
+    const stylesheetLink = document.querySelector('link[href="styles/orangeenvelopestyles.css"]');
+    const invitationDiv = document.querySelector('div.invitation');
+    const jqueryScript = document.querySelector('script[src="https://code.jquery.com/jquery-2.2.4.min.js"]');
+    const tweenMaxScript = document.querySelector('script[src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"]');
+    const scrubGSAPScript = document.querySelector('script[src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/ScrubGSAPTimeline.js"]');
+    const orangeEnvelopeScript = document.querySelector('script[src="/scripts/orangeenvelope.js"]');
 
-    TweenMax.to('.card', 1, {
-        rotationY: ry,
-        ease: Power4.easeInOut,
-        onComplete: toggleText
-    });
-}
 
-function toggleText() {
-    var text = !flipped ? 'Tell me more!' : 'See you there!';
-    button.toggleClass('invert', !flipped).text(text);
+    setTimeout(() => {
+        fontLink.remove();
+        stylesheetLink.remove();
+        invitationDiv.remove();
+        jqueryScript.remove();
+        tweenMaxScript.remove();
+        scrubGSAPScript.remove();
+        orangeEnvelopeScript.remove();
+    }, 1000)
+
+
+
 }
 
 button.one('click', pullOut);
-button.on('click', toggleFlip);
