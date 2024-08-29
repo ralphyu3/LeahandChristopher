@@ -52,7 +52,7 @@ function removeEnvelopeElements() {
     const jqueryScript = document.querySelector('script[src="https://code.jquery.com/jquery-2.2.4.min.js"]');
     const tweenMaxScript = document.querySelector('script[src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"]');
     const scrubGSAPScript = document.querySelector('script[src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/ScrubGSAPTimeline.js"]');
-    const orangeEnvelopeScript = document.querySelector('script[src="/scripts/orangeenvelope.js"]');
+    const orangeEnvelopeScript = document.querySelector('script[src="./scripts/orangeenvelope.js"]');
 
 
     setTimeout(() => {
