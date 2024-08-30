@@ -2160,6 +2160,13 @@ body {
 	font-style: normal;
 }
 
+.pacifico-regular-red {
+	font-family: "Pacifico", cursive;
+	font-weight: 400;
+	font-style: normal;
+	color: red;
+}
+
 
 .navbar {
 	transition: transform 0.3s ease;
