@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Karla|Slackey|Sriracha';
 
 body {
-    background: radial-gradient(ellipse at center, #7db9e8 0%, #005da6 100%);
+    background: radial-gradient(ellipse at center, white 0%, beige 100%);
     user-select: none;
     perspective: 1000px;
     margin: 0;
@@ -36,7 +36,7 @@ body {
 }
 
 .envelope {
-    background: #ff9e3c;
+    background: olive;
     width: 100%;
     height: 307.6923076923px;
     position: relative;
@@ -59,7 +59,7 @@ body {
     right: 0;
     border-bottom: 0px solid transparent;
     border-top: 307.6923076923px solid transparent;
-    border-right: 500px solid #ff9932;
+    border-right: 500px solid olivedrab;
     z-index: 1;
 }
 
@@ -67,13 +67,13 @@ body {
     left: 0;
     border-bottom: 0px solid transparent;
     border-top: 307.6923076923px solid transparent;
-    border-left: 500px solid #ff8f1d;
+    border-left: 500px solid olivedrab;
     z-index: 1;
 }
 
 .flap {
     border-right: 250px solid transparent;
-    border-top: 153.8461538462px solid #ef7800;
+    border-top: 153.8461538462px solid olive;
     border-left: 250px solid transparent;
     position: absolute;
     left: 0;
@@ -173,8 +173,8 @@ button {
     font: normal 1.25em "Karla", sans-serif;
     padding: 15px 30px;
     border-radius: 30px;
-    background: #ffce00;
-    color: #ef7800;
+    background: beige;
+    color: olive;
     border: none;
     position: absolute;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
