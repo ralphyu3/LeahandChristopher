@@ -49,9 +49,12 @@ function initialize() {
     setTimeout(() => {
         removeEnvelopeElements();
         addMainHtmlStyles();
-        removebhidden();
+        setTimeout(() => {
+            removebhidden();
+        }, 10);
 
-    }, 1000)
+
+    }, 1500)
 }
 
 function removeEnvelopeElements() {
