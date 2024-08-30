@@ -47,7 +47,9 @@ function pullOut() {
 
 function initialize() {
     setTimeout(() => {
-        redirectoindex();
+        removeEnvelopeElements();
+        addMainHtmlStyles();
+        removebhidden();
 
     }, 1000)
 }
