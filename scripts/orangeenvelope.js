@@ -51,9 +51,8 @@ function initialize() {
         addMainHtmlStyles();
         setTimeout(() => {
             removebhidden();
-        }, 10);
-
-
+            addbvisible();
+        }, 100);
     }, 1500)
 }
 
@@ -286,6 +285,32 @@ function removebhidden() {
     margbottom.classList.remove("b-hidden");
 }
 
+function addbvisible() {
+    const home = document.getElementById('home');
+    const navbar = document.getElementById('navbar');
+    const us = document.getElementById('us');
+    const urinvited = document.getElementById('urinvited');
+    const wedding = document.getElementById('wedding');
+    const attire = document.getElementById('attire');
+    const gift = document.getElementById('gift');
+    const rsvp = document.getElementById('rsvp');
+    const id01 = document.getElementById('id01');
+    const foot = document.getElementById('foot');
+    const margbottom = document.getElementById('margbottom');
+
+    home.classList.add("b-visible");
+    navbar.classList.add("b-visible");
+    us.classList.add("b-visible");
+    urinvited.classList.add("b-visible");
+    wedding.classList.add("b-visible");
+    attire.classList.add("b-visible");
+    gift.classList.add("b-visible");
+    rsvp.classList.add("b-visible");
+    id01.classList.add("b-visible");
+    foot.classList.add("b-visible");
+    margbottom.classList.add("b-visible");
+}
+
 function removehidefoot() {
 
     const foot = document.getElementById('foot');
@@ -297,3 +322,16 @@ function redirectoindex() {
 }
 
 button.one('click', pullOut);
+
+function isStylesheetLoaded() {
+    const links = document.getElementsByTagName('link');
+
+    for (let i = 0; i < links.length; i++) {
+        if (links[i].rel === 'stylesheet' && links[i].href.includes('styles/styles.css')) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
