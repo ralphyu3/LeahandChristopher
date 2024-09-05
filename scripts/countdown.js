@@ -33,7 +33,7 @@ function startCountdown(targetDate) {
         let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        countdownElement.textContent = `Days Until I Do's: ${totalMonths}mo ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        countdownElement.textContent = `Days Until I DOs: ${totalMonths}mo ${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     let interval = setInterval(updateCountdown, 1000);
