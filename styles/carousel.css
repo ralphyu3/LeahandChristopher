@@ -17,6 +17,32 @@
     flex-shrink: 0;
 }
 
+@media (min-width: 665px) {
+    .carousel {
+        width: 250px !important;
+        margin: 0 auto;
+        /* Center horizontally with margin */
+        display: flex;
+        justify-content: center;
+        /* Horizontal centering */
+        align-items: center;
+        /* Vertical centering */
+    }
+}
+
+@media (min-width: 992px) {
+    .carousel {
+        width: 450px !important;
+        margin: 0 auto;
+        /* Center horizontally with margin */
+        display: flex;
+        justify-content: center;
+        /* Horizontal centering */
+        align-items: center;
+        /* Vertical centering */
+    }
+}
+
 .prev,
 .next {
     position: absolute;
