@@ -25,15 +25,13 @@ function startCountdown(targetDate) {
             return;
         }
 
-        // Calculate the difference in months, days, hours, minutes, and seconds
+        // Calculate the difference in days, hours, minutes, and seconds
         let totalDays = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        let totalMonths = Math.floor(totalDays / 30); // Approximate months
-        let days = totalDays % 30;
         let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        countdownElement.textContent = `Days Until I DOs: ${totalMonths}mo ${days}d ${hours}h ${minutes}m ${seconds}s`;
+        countdownElement.textContent = `Days Until I DOs: ${totalDays}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     let interval = setInterval(updateCountdown, 1000);
@@ -41,4 +39,4 @@ function startCountdown(targetDate) {
 }
 
 // Input target date in MMDDYYYYHH format
-startCountdown('1207202415'); // Example: December 7, 2024, 13:00 local time
+startCountdown('1207202415'); // Example: December 7, 2024, 15:00 local time
