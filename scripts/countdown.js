@@ -1,23 +1,32 @@
 function startCountdown(targetDate) {
     const countdownElement = document.getElementById('countdown');
 
+    // Validate and parse the input date string
     function parseDate(dateStr) {
-        let month = parseInt(dateStr.slice(0, 2), 10);
-        let day = parseInt(dateStr.slice(2, 4), 10);
-        let year = parseInt(dateStr.slice(4, 8), 10);
-        let hour = parseInt(dateStr.slice(8, 10), 10);
+        const datePattern = /^\d{12}$/; // MMDDYYYYHHMM
+        if (!datePattern.test(dateStr)) {
+            console.error("Invalid date format. Use MMDDYYYYHHMM.");
+            countdownElement.textContent = "Invalid date format. Please use MMDDYYYYHHMM.";
+            return null;
+        }
 
-        // Create the date in local time zone
-        return new Date(year, month - 1, day, hour);
+        const month = parseInt(dateStr.slice(0, 2), 10) - 1; // Months are 0-based in JS Date
+        const day = parseInt(dateStr.slice(2, 4), 10);
+        const year = parseInt(dateStr.slice(4, 8), 10);
+        const hour = parseInt(dateStr.slice(8, 10), 10);
+        const minute = parseInt(dateStr.slice(10, 12), 10);
+
+        return new Date(year, month, day, hour, minute);
     }
 
-    let endTime = parseDate(targetDate);
+    const endTime = parseDate(targetDate);
+    if (!endTime) return; // Stop if the date is invalid
 
     function updateCountdown() {
-        let now = new Date();
+        const now = new Date();
 
-        // Calculate the difference in milliseconds
-        let timeLeft = endTime.getTime() - now.getTime();
+        // Calculate the time difference
+        const timeLeft = endTime.getTime() - now.getTime();
 
         if (timeLeft <= 0) {
             countdownElement.textContent = '<3';
@@ -25,18 +34,19 @@ function startCountdown(targetDate) {
             return;
         }
 
-        // Calculate the difference in days, hours, minutes, and seconds
-        let totalDays = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-        let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        // Time calculations
+        const totalDays = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
+        // Update the countdown text
         countdownElement.textContent = `Days Until I DOs: ${totalDays}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
-    let interval = setInterval(updateCountdown, 1000);
+    const interval = setInterval(updateCountdown, 1000);
     updateCountdown(); // Initial call
 }
 
-// Input target date in MMDDYYYYHH format
-startCountdown('1207202415'); // Example: December 7, 2024, 15:00 local time
+// Input target date in MMDDYYYYHHMM format
+startCountdown('120720240930'); // Example: December 7, 2024, 15:30 local time
